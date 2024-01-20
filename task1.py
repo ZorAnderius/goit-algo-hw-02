@@ -23,7 +23,7 @@ class ServiceCenter():
             application = self.applications.get()
             for i in range(1, application.task):
                 print(Fore.WHITE + f'Processing application {application.title} with Task{i}')
-                sleep(random.randint(1,4))
+                sleep(random.randint(1,3))
         else:
             print(Fore.BLUE + 'Queue is empty')
 
