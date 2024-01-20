@@ -1,10 +1,11 @@
 from colorama import Fore
 from queue import Queue
 import random
+import uuid
 from time import sleep
 
 class Application():
-    def __init__(self, title):
+    def __init__(self, title: str):
         self.title = title
         self.task = random.randint(1, 10)
 
@@ -13,9 +14,7 @@ class ServiceCenter():
         self.applications = Queue()
 
     def generate_request(self):
-        for i in range(random.randint(1, 10)):
-            if i: 
-                self.applications.put(Application(f'Application {i}'))
+        self.applications.put(Application(f'Application №{uuid.uuid4().hex}'))
         
     def process_request(self):
         print(Fore.BLUE + 'Exit for simulation CTRL+C')

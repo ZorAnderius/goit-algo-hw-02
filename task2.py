@@ -2,14 +2,15 @@ from colorama import Fore
 from collections import deque
 from time import sleep
 
-def init_deque(queue):
+def init_deque(queue: deque) -> str:
     print(Fore.BLUE + 'Exit for task2 press CTRL+C')
     word = input(Fore.BLUE + 'Enter word: ')
     for ch in word:
-        queue.append(ch)
+        if ch.isalpha() or ch.isdigit():
+            queue.append(ch)
     return word
 
-def check_palindrome(queue):
+def check_palindrome(queue: deque) -> bool:
     while len(queue):
         if queue.pop().lower() != queue.popleft().lower():
             return False
